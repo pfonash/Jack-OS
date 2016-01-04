@@ -1,0 +1,122 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Math.jack
+
+/**
+ * A basic math library.
+ */
+class Math {
+
+    static Array twoToThe;
+
+    /** Prepares an array with elements ranging from 2^0 to 2^15 used by the bit function */
+    function void init() {
+
+        var int n;
+        var int j;
+
+        let n = 1;
+        let j = 0;
+        let twoToThe = Array.new(16);
+
+        while (j < 16) {
+
+            let twoToThe[j] = n;
+            n = n + n;
+            j = j + 1;
+
+        }
+    }
+
+    /** Returns the absolute value of x. */
+    function int abs(int x) {
+
+
+    }
+
+    /** Returns the product of x and y. */
+    function int multiply(int x, int y) {
+
+        // Declare vars
+        var int j;
+        var int shiftedX;
+        var int sum;
+
+        let j = 0;
+        let shiftedX = x;
+        let sum = 0;
+
+
+        // For the number of bits in x and y
+        while (j < 16) {
+
+            if (bit(y,j) = 1) {
+
+            }
+
+
+
+        }
+
+    }
+
+    /** Returns true if the j -th bit of the integer x is 1 and false otherwise. */
+    function boolean bit(int x, int y) {
+
+
+    }
+
+    /** Return an array holding the binary value of x */
+    function Array convertToBin(int x) {
+
+        // Declare vars
+        var int j;
+        var Array binaryX;
+
+        // Initialize vars
+        let binaryX = Array.new(16)
+        let j = 15;
+
+        // While there are still powers of 2 greater than x (meaning we can break x down further)
+        while (x > 0) {
+
+            // If 2^j is less than or equal to x
+            if (twoToThe[j] <= x) {
+
+                // Set bit j of binary value
+                let binaryX[j] = 1;
+
+                // Subtract value at 2^j from x
+                let x = x - twoToThe[j];
+            }
+
+            // Else bit j is 0
+            else {
+                 let binaryX[j] = 0;
+            }
+
+            let j = j - 1;
+
+        }
+
+        return binaryX;
+    }
+
+
+    /** Returns the integer part of x/y. */
+    function int divide(int x, int y) {
+    }
+
+    /** Returns the integer part of the square root of x. */
+    function int sqrt(int x) {
+    }
+
+    /** Returns the greater number. */
+    function int max(int a, int b) {
+    }
+
+    /** Returns the smaller number. */
+    function int min(int a, int b) {
+    }
+}
